@@ -1,0 +1,17 @@
+.registration-form__input {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 13px;
+  margin-bottom: 30px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid rgba(204, 204, 204, 1);
+  color: rgba(255, 255, 255, 1);
+
+}

@@ -1,0 +1,10 @@
+.card__image {
+  display: block;
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  object-position: center center;
+  background: #C4C4C4;
+  opacity: 80%;
+  cursor: pointer;
+}

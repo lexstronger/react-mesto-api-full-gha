@@ -1,0 +1,14 @@
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  margin: 60px auto ;
+}
+
+.entry-form h1 {
+  margin: 0;
+  margin-bottom: 50px;
+}

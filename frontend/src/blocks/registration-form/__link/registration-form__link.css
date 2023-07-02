@@ -1,0 +1,15 @@
+.registration-form__link{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.registration-form__link:hover {
+  opacity: 0.6;
+}
