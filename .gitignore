@@ -1,0 +1,16 @@
+/node_modules
+/frontend/build
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.DS_Store
+.idea
+.vscode
+.env
