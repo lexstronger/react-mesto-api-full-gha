@@ -5,7 +5,7 @@ const helmet = require('helmet');
 const router = require('./routes/routers');
 const centralHandlerError = require('./middlewares/centralHadlerError');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 
 const app = express();
 
