@@ -106,9 +106,9 @@ class Api {
 }
 
 const api = new Api({
-  basePath: 'https://mesto.nomoreparties.co/v1/cohort-61',
+  basePath: 'https://api.lexstronger.nomoreparties.co',
   headers: {
-    authorization: 'd0048b8d-b031-4f52-9b12-6a593e4f7ea8',
+    authorization: '',
     'Content-Type': 'application/json'
   }
 });
