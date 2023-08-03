@@ -9,6 +9,12 @@ const {
   signupValidator,
 } = require('../middlewares/joi');
 
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 router.post('/signin', signinValidator, login);
 router.post('/signup', signupValidator, createUser);
 router.use(auth);
