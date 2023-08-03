@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 84.201.167.241
+IP 84.201.167.241
 
 Frontend https://lexstronger.nomoreparties.co
 
