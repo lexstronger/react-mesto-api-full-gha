@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 84.201.167.241
 
-Frontend https://...
+Frontend https://lexstronger.nomoreparties.co
 
-Backend https://...
+Backend https://api.lexstronger.nomoreparties.co
