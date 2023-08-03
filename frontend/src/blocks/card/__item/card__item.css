@@ -1,0 +1,5 @@
+.card__item {
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}

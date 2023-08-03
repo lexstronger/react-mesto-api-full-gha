@@ -1,0 +1,6 @@
+.card__stats {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  min-height: 35px;
+}
