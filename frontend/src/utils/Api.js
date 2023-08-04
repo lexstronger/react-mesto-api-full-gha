@@ -103,6 +103,10 @@ class Api {
       return this.deleteLike(id)
     }
   }
+
+  setToken(token) {
+    this._headers.authorization = `Bearer ${token}`;
+  }
 }
 
 const api = new Api({

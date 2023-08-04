@@ -173,6 +173,7 @@ function App() {
       auth
         .checkToken(jwt)
         .then((res) => {
+          api.setToken(jwt);
           setLoggedIn(true);
           setEmail(res.data.email);
           navigate("/", { replace: true });
@@ -219,7 +220,8 @@ function App() {
     auth
       .authorize(email, password)
       .then((data) => {
-        localStorage.setItem("jwt", data.token)
+        localStorage.setItem("jwt", data.token);
+        api.setToken(data.token);
         setInputValue({ email: "", password: "" });
         setLoggedIn(true);
         setEmail(email);

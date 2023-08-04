@@ -29,7 +29,11 @@ class Auth {
         },
         body: JSON.stringify({ email, password }),
       })
-      .then(this._getJson);
+      .then(this._getJson)
+      .then((data) => {
+        localStorage.setItem("jwt", data.token);
+        return data;
+      });
   }
 
   checkToken(token) {
