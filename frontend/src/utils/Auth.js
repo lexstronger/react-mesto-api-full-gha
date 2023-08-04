@@ -44,6 +44,6 @@ class Auth {
   }
 }
 
-const auth = new Auth("https://auth.nomoreparties.co");
+const auth = new Auth("https://api.lexstronger.nomoreparties.co");
 
 export default auth;
