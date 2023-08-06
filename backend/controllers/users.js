@@ -1,3 +1,4 @@
+const { JWT_SECRET } = process.env;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
@@ -8,7 +9,6 @@ const {
   SUCCESS,
   CREATED,
 } = require('../utils/constants');
-const JWT_SECRET = require('../config');
 
 const dataUser = (user) => ({
   name: user.name,
