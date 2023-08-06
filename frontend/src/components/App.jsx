@@ -15,6 +15,7 @@ import Login from "./Login.jsx";
 import Register from "./Register.jsx";
 import InfoTooltip from "./InfoTooltip.jsx";
 import auth from "../utils/Auth.js";
+import Card from "./Card.jsx";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -26,7 +27,6 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState({});
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
-  const [email, setEmail] = React.useState("");
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false)
@@ -55,7 +55,7 @@ function App() {
     api
       .getInitialCards()
       .then((res) => {
-        setCards(res);
+        setCards(res.reverse());
       })
       .catch((err) => console.log(err));
   }}, [loggedIn]);
@@ -104,14 +104,15 @@ function App() {
   }
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
+          state.map((c) => (c._id === card._id ? newCard.card : c)),
+          console.log(Card)
         );
       })
       .catch((err) => console.log(err));
@@ -129,7 +130,7 @@ function App() {
     api
       .editProfileInfo(data)
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser(res.user);
         closeAllPopups();
       })
       .catch((err) => console.log(err))
@@ -142,7 +143,7 @@ function App() {
     api
       .editProfileAvatar(data)
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser(res.user);
         closeAllPopups();
       })
       .catch((err) => console.log(err))
@@ -175,7 +176,6 @@ function App() {
         .then((res) => {
           api.setToken(jwt);
           setLoggedIn(true);
-          setEmail(res.data.email);
           navigate("/", { replace: true });
         })
         .catch((err) => {
@@ -185,7 +185,9 @@ function App() {
   }
   function handleLogOut() {
     setLoggedIn(false);
-    setEmail("");
+    setCards([]);
+    setCurrentUser({});
+    api.setToken(null);
     navigate("/sign-in", { replace: true });
     localStorage.removeItem("jwt");
   }
@@ -217,14 +219,15 @@ function App() {
   function handleLoginUser(evt) {
     evt.preventDefault();
     const { email, password } = inputValue;
+    
     auth
       .authorize(email, password)
       .then((data) => {
-        localStorage.setItem("jwt", data.token);
-        api.setToken(data.token);
+        console.log(data);
+        api.setToken(data._id);
+        localStorage.setItem("jwt", data._id);
         setInputValue({ email: "", password: "" });
         setLoggedIn(true);
-        setEmail(email);
         navigate("/", { replace: true });
       })
       .catch((err) => {
@@ -243,7 +246,7 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <div className="page__container">
-          <Header email={email} onLogout={handleLogOut} />
+          <Header onLogout={handleLogOut} />
           <Routes>
             <Route
               path="/sign-in"
