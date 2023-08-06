@@ -229,8 +229,15 @@ function App() {
         navigate("/", { replace: true });
       })
       .catch((err) => {
+        setIsRegister({
+          status: false,
+          message: "Что-то пошло не так! Попробуйте еще раз.",
+        });
         console.log(err);
-      });
+      })
+      .finally(() => {
+        setIsInfoTooltipOpen(true);
+      })
   }
   function handleChange(evt) {
     const { name, value } = evt.target;
