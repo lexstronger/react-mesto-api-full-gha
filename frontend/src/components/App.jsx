@@ -154,7 +154,7 @@ function App() {
     api
       .addNewCard(data)
       .then((res) => {
-        setCards([res, ...cards]);
+        setCards([res.card, ...cards]);
         closeAllPopups();
       })
       .catch((err) => console.log(err))
