@@ -15,7 +15,6 @@ import Login from "./Login.jsx";
 import Register from "./Register.jsx";
 import InfoTooltip from "./InfoTooltip.jsx";
 import auth from "../utils/Auth.js";
-import Card from "./Card.jsx";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -111,8 +110,7 @@ function App() {
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard.card : c)),
-          console.log(Card)
+          state.map((c) => (c._id === card._id ? newCard.card : c))
         );
       })
       .catch((err) => console.log(err));
