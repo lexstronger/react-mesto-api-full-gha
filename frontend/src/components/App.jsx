@@ -211,8 +211,7 @@ function App() {
       })
       .finally(() => {
         setIsInfoTooltipOpen(true);
-      })
-      
+      })      
   }
   function handleLoginUser(evt) {
     evt.preventDefault();
@@ -233,11 +232,9 @@ function App() {
           status: false,
           message: "Что-то пошло не так! Попробуйте еще раз.",
         });
-        console.log(err);
-      })
-      .finally(() => {
         setIsInfoTooltipOpen(true);
-      })
+        console.log(err);
+      })      
   }
   function handleChange(evt) {
     const { name, value } = evt.target;
